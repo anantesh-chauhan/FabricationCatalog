@@ -1,0 +1,120 @@
+/* CTA Section Styles */
+.cta-section {
+  position: relative;
+  padding: var(--spacing-3xl) 0;
+  overflow: hidden;
+}
+
+/* Background */
+.cta-background {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-surface) 0%,
+    #1a1510 100%
+  );
+  z-index: 0;
+}
+
+.cta-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(184, 134, 11, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(184, 134, 11, 0.1) 0%, transparent 40%);
+}
+
+/* Content */
+.cta-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.cta-content > div:first-child p {
+  color: var(--color-text-muted);
+  font-size: 1.15rem;
+}
+
+/* Buttons */
+.cta-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  margin-top: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  min-width: 180px;
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 1rem;
+}
+
+.cta-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Contact Info */
+.cta-contact {
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-surface-hover);
+}
+
+.cta-contact p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.cta-contact p:first-child strong {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+.cta-phone {
+  margin-top: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.cta-phone svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cta-section {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.75rem;
+  }
+}

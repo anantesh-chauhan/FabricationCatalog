@@ -1,0 +1,9 @@
+/* Home Page Base Styles */
+.home {
+  min-height: 100vh;
+}
+
+/* Reset any conflicting styles */
+.home > * {
+  max-width: 100%;
+}
