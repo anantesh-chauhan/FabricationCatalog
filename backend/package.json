@@ -15,7 +15,7 @@
     "fabrication",
     "shop"
   ],
-  "author": "Your Name",
+  "author": "Anantesh Chauhan",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^3.0.3",

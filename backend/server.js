@@ -37,6 +37,12 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // ============================================
+// Serve Frontend Static Files (Production)
+// ============================================
+const frontendDistPath = path.resolve(__dirname, '../frontend/dist');
+app.use(express.static(frontendDistPath));
+
+// ============================================
 // Routes - Multer already has Cloudinary configured
 // ============================================
 app.use('/api/products', productRoutes);
@@ -45,6 +51,14 @@ app.use('/api/auth', authRoutes);
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: `${siteConfig.shopName} API is running` });
+});
+
+// ============================================
+// SPA Fallback Route - Serve index.html for all non-API routes
+// This ensures refresh works on any route
+// ============================================
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
 });
 
 // ============================================
