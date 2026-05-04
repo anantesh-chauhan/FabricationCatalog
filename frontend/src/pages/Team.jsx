@@ -2,15 +2,10 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './Team.css';
 
-// ============================================
-// Team Page
-// @desc    Static team page showing team members
-// @route   /team
-// ============================================
-
+// Animation Variants
 const pageVariants = {
   hidden: { opacity: 0 },
-  visible: { 
+  visible: {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
@@ -21,8 +16,8 @@ const pageVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: {
       type: 'spring',
@@ -32,32 +27,36 @@ const itemVariants = {
   }
 };
 
-// Team data structure - can be updated easily
+// Team Data with Images
 const teamMembers = [
   {
     name: 'Pappu Chauhan',
     role: 'Founder & Master Craftsman',
-    initials: 'PC',
     isFounder: true,
-    description: 'With over 20 years of experience in iron fabrication, Pappu Chauhan founded the company in 2010 with a vision to deliver exceptional quality craftsmanship. His attention to detail and innovative designs have made us a trusted name.'
+    image: 'https://res.cloudinary.com/dlixtmy1x/image/upload/v1777870550/user1_ihcylt.png',
+    description:
+      'With over 20 years of experience in iron fabrication, Pappu Chauhan founded the company with a vision to deliver exceptional craftsmanship.'
   },
   {
     name: 'Rajesh Kumar',
     role: 'Senior Fabricator',
-    initials: 'RK',
-    description: 'Expert in custom gate fabrication with 10+ years of experience. Rajesh specializes in intricate designs and precision welding.'
+    image: 'https://res.cloudinary.com/dlixtmy1x/image/upload/v1777870568/user2_lhwun7.png',
+    description:
+      'Expert in custom gate fabrication with 10+ years of experience and precision welding.'
   },
   {
     name: 'Surendra Pal',
     role: 'Welder & Fitter',
-    initials: 'SP',
-    description: 'Skilled in all types of welding work, Surendra ensures every joint and connection is perfect and durable.'
+    image: 'https://res.cloudinary.com/dlixtmy1x/image/upload/v1777870567/user_3_jqgwiw.jpg',
+    description:
+      'Specialist in all types of welding ensuring durability and strength in every structure.'
   },
   {
     name: 'Ajay Kumar',
     role: 'Finishing Specialist',
-    initials: 'AK',
-    description: 'Expert in surface finishing and painting, Ajay gives every piece a flawless, long-lasting finish.'
+    image: 'https://res.cloudinary.com/dlixtmy1x/image/upload/v1777870568/user_4_ccfszt.jpg',
+    description:
+      'Delivers premium surface finishing and long-lasting paint quality.'
   }
 ];
 
@@ -65,7 +64,7 @@ function Team() {
   return (
     <div className="team-page">
       <div className="container">
-        <motion.div 
+        <motion.div
           className="team-page-content"
           variants={pageVariants}
           initial="hidden"
@@ -77,37 +76,40 @@ function Team() {
             <p>Meet the skilled craftsmen behind our quality work</p>
           </motion.div>
 
-          {/* Team Members */}
+          {/* Team Grid */}
           <motion.div variants={itemVariants} className="team-page-grid">
             {teamMembers.map((member, index) => (
-              <div 
-                key={index} 
-                className={`team-card ${member.isFounder ? 'team-card-founder' : ''}`}
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ scale: 1.03 }}
+                className={`team-card ${
+                  member.isFounder ? 'team-card-founder' : ''
+                }`}
               >
+                {member.isFounder && (
+                  <span className="founder-badge">Founder</span>
+                )}
+
                 <div className="team-card-image">
-                  {member.image ? (
-                    <img src={member.image} alt={member.name} />
-                  ) : (
-                    <div className="team-card-placeholder">
-                      <span>{member.initials}</span>
-                    </div>
-                  )}
+                  <img src={member.image} alt={member.name} />
                 </div>
+
                 <div className="team-card-info">
                   <h3>{member.name}</h3>
                   <span className="team-card-role">{member.role}</span>
                   <p>{member.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
 
-          {/* Join Team CTA */}
+          {/* CTA */}
           <motion.div variants={itemVariants} className="team-page-cta">
             <h2>Want to Join Our Team?</h2>
             <p>
-              We are always looking for skilled craftsmen. If you have experience 
-              in iron fabrication and are passionate about quality work, we'd 
+              We are always looking for skilled craftsmen. If you have experience
+              in iron fabrication and are passionate about quality work, we'd
               love to hear from you.
             </p>
             <Link to="/contact" className="btn btn-primary">

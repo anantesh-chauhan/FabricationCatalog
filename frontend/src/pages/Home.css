@@ -1,9 +1,100 @@
-/* Home Page Base Styles */
+/* Premium Home Page - Luxury Shop */
 .home {
-  min-height: 100vh;
+  background: var(--color-background);
+  overflow-x: hidden;
 }
 
-/* Reset any conflicting styles */
-.home > * {
-  max-width: 100%;
+/* Section Animations */
+.home section {
+  padding: var(--spacing-2xl) 0;
+  position: relative;
+}
+
+.home section:nth-child(odd) {
+  background: linear-gradient(180deg, var(--color-background) 0%, var(--color-surface) 100%);
+}
+
+/* Parallax Effect */
+.parallax-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Luxury Cards */
+.home-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-glass-gold);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  z-index: -1;
+}
+
+.home-card:hover {
+  transform: translateY(-12px) rotateX(5deg);
+  box-shadow: var(--shadow-lg);
+}
+
+.home-card:hover::before {
+  opacity: 0.3;
+}
+
+/* Stats Grid */
+.home-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-xl);
+  margin: var(--spacing-2xl) 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-family: var(--font-display);
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Premium Features */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .home section {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .home-card {
+    padding: var(--spacing-lg);
+  }
 }

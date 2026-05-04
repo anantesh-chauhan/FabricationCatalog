@@ -97,7 +97,7 @@ function CTASection() {
             <p>
               <strong>Adarsh Gate Grill and Fabrication Shop</strong>
               <br />
-              Kanpur, Uttar Pradesh
+              Ballia, Uttar Pradesh
             </p>
             <p className="cta-phone">
               <FiPhone /> {PHONE_NUMBER}

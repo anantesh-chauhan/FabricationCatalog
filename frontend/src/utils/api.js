@@ -8,7 +8,20 @@ import axios from 'axios';
 // Base URL configuration
 // In production, use relative /api (served by same backend)
 // For local dev, use VITE_API_URL from .env or default to localhost
+// ============================================
+// PRODUCTION BASE_URL LOGGING (Image Fix)
+// ============================================
 const BASE_URL = import.meta.env.VITE_API_URL || '/api';
+
+console.log('🔌 API BASE_URL:', BASE_URL);
+console.log('🌐 VITE_API_URL:', import.meta.env.VITE_API_URL);
+console.log('🏗️  Mode:', import.meta.env.MODE || 'development');
+
+if (import.meta.env.PROD && BASE_URL === '/api') {
+  console.log('✅ Production: Using relative /api (same domain serving)');
+} else if (BASE_URL.startsWith('http://localhost')) {
+  console.warn('⚠️  Local dev detected - set VITE_API_URL in production!');
+}
 
 // Create axios instance
 const api = axios.create({

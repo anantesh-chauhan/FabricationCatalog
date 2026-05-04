@@ -7,26 +7,56 @@ import './HeroSlider.css';
 const heroSlides = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1565557623262-b51c2516a634?w=1920&q=80',
+    image: 'https://res.cloudinary.com/dlixtmy1x/image/upload/v1777868769/hero_6_ivzcba.jpg',
     title: 'Adarsh Gate Grill and Fabrication Shop',
     subtitle: 'All Fabrication Work – From Welding to Fitting',
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebeec29?w=1920&q=80',
+    image: 'https://res.cloudinary.com/dlixtmy1x/image/upload/v1777869136/h3_f9islb.png',
     title: 'Custom Gates & Grills',
     subtitle: 'Premium Quality Craftsmanship for Your Home',
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=1920&q=80',
+    image: 'https://res.cloudinary.com/dlixtmy1x/image/upload/v1777869134/h2_rqamyt.jpg',
     title: 'Modern Railings & Aluminum',
     subtitle: 'Elegant Designs That Last a Lifetime',
+  },
+  {
+    id: 4,
+    image: 'https://res.cloudinary.com/dlixtmy1x/image/upload/v1777868769/hero_5_bxwb1q.jpg',
+    title: 'Adarsh Gate Grill and Fabrication Shop',
+    subtitle: 'All Fabrication Work – From Welding to Fitting',
+  },
+  {
+    id: 5,
+    image: 'https://res.cloudinary.com/dlixtmy1x/image/upload/v1777869135/h1_tspnci.jpg',
+    title: 'Custom Gates & Grills',
+    subtitle: 'Premium Quality Craftsmanship for Your Home',
+  },
+  {
+    id: 6,
+    image: 'https://res.cloudinary.com/dlixtmy1x/image/upload/v1777869383/r2_krw3f4.webp',
+    title: 'Modern Railings & Aluminum',
+    subtitle: 'Elegant Designs That Last a Lifetime',
+  },
+   {
+    id: 7,
+    image: 'https://res.cloudinary.com/dlixtmy1x/image/upload/v1777869383/r3_wcpcgz.jpg',
+    title: 'Adarsh Gate Grill and Fabrication Shop',
+    subtitle: 'All Fabrication Work – From Welding to Fitting',
+  },
+  {
+    id: 8,
+    image: 'https://res.cloudinary.com/dlixtmy1x/image/upload/v1777863021/adarsh-gate-grill/ywe6g2hdmvqe6zfpl5wj.jpg',
+    title: 'Custom Gates & Grills',
+    subtitle: 'Premium Quality Craftsmanship for Your Home',
   },
 ];
 
 // Fallback image
-const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1565557623262-b51c2516a634?w=1920&q=80';
+const FALLBACK_IMAGE = 'https://res.cloudinary.com/dlixtmy1x/image/upload/v1777868769/hero_7_czmtza.jpg';
 
 // Animation variants
 const textVariants = {

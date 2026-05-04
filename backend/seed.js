@@ -239,29 +239,29 @@ const seedDB = async () => {
     console.log('✅ MongoDB Connected...');
 
     // Clear existing data
-    await Product.deleteMany({});
-    await User.collection.drop().catch(() => {}); // Drop users if exists
-    console.log('🗑️  Existing data cleared...');
+    // await Product.deleteMany({});
+    // await User.collection.drop().catch(() => {}); // Drop users if exists
+    // console.log('🗑️  Existing data cleared...');
 
     // Insert seed products
     const products = await Product.insertMany(allProducts);
     console.log(`✅ ${products.length} products seeded successfully!`);
 
-    // Hash passwords for users
-    const salt = await bcrypt.genSalt(10);
-    const hashedUsers = await Promise.all(
-      seedUsers.map(async (user) => ({
-        ...user,
-        password: await bcrypt.hash(user.password, salt)
-      }))
-    );
+    // // Hash passwords for users
+    // const salt = await bcrypt.genSalt(10);
+    // const hashedUsers = await Promise.all(
+    //   seedUsers.map(async (user) => ({
+    //     ...user,
+    //     password: await bcrypt.hash(user.password, salt)
+    //   }))
+    // );
 
-    // Insert users
-    await User.insertMany(hashedUsers);
-    console.log(`✅ User seeded: admin / admin123`);
+    // // Insert users
+    // await User.insertMany(hashedUsers);
+    // console.log(`✅ User seeded: admin / admin123`);
 
     // Display summary by category
-    const categories = ['gates', 'grill', 'railings', 'aluminum', 'doors'];
+    const categories = ['gates', 'railings', 'aluminum', 'windows','others'];
     console.log('\n📊 Products by Category:');
     for (const cat of categories) {
       const count = await Product.countDocuments({ category: cat });

@@ -1,41 +1,61 @@
 :root {
-  --color-primary: #B8860B;
-  --color-primary-dark: #8B6914;
-  --color-primary-light: #DAA520;
-  --color-secondary: #1a1a1a;
-  --color-secondary-light: #2d2d2d;
-  --color-text: #f5f5f5;
-  --color-text-muted: #a0a0a0;
-  --color-background: #0d0d0d;
-  --color-surface: #1a1a1a;
-  --color-surface-hover: #252525;
-  --color-accent: #B8860B;
+  /* Core Colors */
+  --color-primary: #D4AF37;
+  --color-primary-dark: #B8860B;
+  --color-primary-light: #FAD5A5;
+  --color-secondary: #0f0f0f;
+  --color-secondary-light: #1a1a1a;
+  --color-text: #f8f9fa;
+  --color-text-muted: #adb5bd;
+  --color-background: #0a0a0a;
+  --color-surface: #151515;
+  --color-surface-hover: #202020;
+  --color-accent: #FFD700;
   --color-error: #e74c3c;
   --color-success: #27ae60;
   
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body: 'Outfit', sans-serif;
+  /* Luxury Gradients */
+  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #B8860B 50%, #FAD5A5 100%);
+  --gradient-glass-gold: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(184, 134, 11, 0.25) 100%);
+  --gradient-dark-gold: linear-gradient(135deg, #1a1a1a 0%, #B8860B 100%);
   
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: blur(20px);
+  
+  /* Typography */
+  --font-display: 'Bebas Neue', 'Cinzel', serif;
+  --font-body: 'Outfit', 'Inter', -apple-system, sans-serif;
+  --font-luxury: 'Playfair Display', serif;
+  
+  /* Golden Ratio Spacing */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
+  --spacing-md: 0.875rem;
   --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-  --spacing-3xl: 4rem;
+  --spacing-xl: 2.618rem;
+  --spacing-2xl: 4.236rem;
+  --spacing-3xl: 6.854rem;
   
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  /* Premium Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
   --radius-full: 9999px;
   
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  /* 3D Multi-Layer Shadows */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 6px 15px -3px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 20px 50px -10px rgba(0, 0, 0, 0.4), 0 12px 30px -8px rgba(184, 134, 11, 0.15);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.4);
   
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  /* Enhanced Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -111,14 +131,26 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--color-primary);
-  color: var(--color-secondary);
+  background: var(--gradient-gold);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+  border: 1px solid transparent;
+  background-origin: border-box;
+  box-shadow: var(--shadow-glow);
 }
 
 .btn-primary:hover {
-  background: var(--color-primary-light);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  background-position: 100% 0;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .btn-secondary {

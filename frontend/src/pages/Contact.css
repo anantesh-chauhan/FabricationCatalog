@@ -27,9 +27,19 @@
 .info-card,
 .services-card {
   padding: var(--spacing-xl);
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
   height: 100%;
+  box-shadow: var(--shadow-glass);
+  transition: all var(--transition-normal);
+}
+
+.info-card:hover,
+.services-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
 }
 
 .info-card h2,
@@ -120,8 +130,11 @@
 
 /* Map */
 .contact-map {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
 }
 
 .map-placeholder {
@@ -135,7 +148,17 @@
   border: 1px dashed var(--color-surface-hover);
   color: var(--color-text-muted);
 }
+.map-container {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
 
+.map-container iframe {
+  width: 100%;
+  height: 400px;
+  display: block;
+}
 /* Responsive */
 @media (max-width: 768px) {
   .contact-grid {

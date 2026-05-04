@@ -1,67 +1,44 @@
-# MERN Stack Production-Ready Implementation Plan - COMPLETED
+# Premium UI & Scroll-to-Top Fix - TODO
 
-## ✅ ALL TASKS COMPLETED
+## Plan Breakdown & Progress Tracking
 
-### TASK 1: DATABASE SEEDING - COMPLETED
-- [x] Product model updated with images array, tags, isFeatured, isActive
-- [x] seed.js created with 30 high-quality Unsplash images
-- [x] Categories: Gates (6), Grill (6), Railings (6), Aluminum (6), Doors (6)
-- [x] Run seed command - SUCCESS (30 products seeded!)
+### Phase 1: Core Fixes (Critical)
+- [✅] **1.1** Edit `frontend/src/App.jsx` - Add scroll-to-top on route change
+- [✅] **1.2** Update `frontend/src/index.css` - Luxury theme variables & global styles
 
-### TASK 2: CENTRAL CONFIG SYSTEM - COMPLETED
-- [x] frontend/src/config/siteConfig.js created
-- [x] backend/config/siteConfig.js created
+**Current Phase: Phase 2**
 
-### TASK 3: USE CONFIG EVERYWHERE - COMPLETED
-- [x] Navbar.jsx - uses shopName, tagline from config
-- [x] Footer.jsx - uses shopName, contact, services from config
-- [x] About.jsx - uses founder, founded, stats from config
-- [x] Contact.jsx - uses contact, services from config
+### Phase 2: Navigation Components
+- [✅] **2.1** Read & Upgrade `frontend/src/components/Navbar.css`
+- [✅] **2.2** Edit `frontend/src/components/Navbar.css` - Glass navbar, premium effects
+- [✅] **2.3** Edit `frontend/src/components/Footer.css` - Gradient footer, luxury links
 
-### TASK 4: PRODUCTION READINESS - COMPLETED
-### Backend
-- [x] backend/middleware/asyncHandler.js created
-- [x] backend/middleware/errorMiddleware.js created
-- [x] multer.js updated with file size validation (5MB)
-- [x] server.js improved with error handling
+**Current Phase: Phase 3**
 
-### Frontend  
-- [x] ProductContext.jsx uses config for baseURL
+### Phase 3: Hero & Home (High Impact)
+- [✅] **3.1** Edit `frontend/src/pages/Home.css` - Parallax hero, premium sections
+- [✅] **3.2** Edit `frontend/src/components/HeroSlider.css` - Metallic gradients, smooth transitions
 
-### TASK 5: IMAGE OPTIMIZATION - COMPLETED
-- [x] Cloudinary transformations with auto quality
-- [x] Image resizing on upload (1200px max)
+**Current Phase: Phase 4**
 
-### TASK 6: DEPLOYMENT SETUP - COMPLETED
-- [x] DEPLOYMENT.md created with full steps
-- [x] Vercel, Render, MongoDB Atlas instructions included
+### Phase 4: Content Pages (Open Tabs Priority)
+- [✅] **4.1** Edit `frontend/src/pages/Contact.css` - Glass forms, floating map
+- [✅] **4.2** Edit `frontend/src/pages/Team.css` - 3D team cards, luxury hover effects
 
-### TASK 7: REUSABILITY - COMPLETED
-- [x] System is fully config-driven
-- [x] Only siteConfig.js needs to be changed for new shops
+**Current Phase: Phase 5**
 
-### TASK 8: FINAL POLISH
-- [x] Mobile responsive components already in place
-- [x] Loading states implemented in ProductContext
-- [x] Empty states implemented in components
+### Phase 5: Product Pages
+- [✅] **5.1** Edit `frontend/src/components/ProductCard.css` - 3D hovers, lightbox preview
+- [✅] **5.2** Edit `frontend/src/pages/ProductDetail.css` - Premium gallery, glowing CTAs
 
----
+**Current Phase: Phase 6**
 
-## ✅ RENDER DEPLOYMENT FIX - COMPLETED
+### Phase 6: Testing & Polish ✓ COMPLETED
+- [✅] **6.1** Test scroll behavior across all pages
+- [✅] **6.2** Test responsive design (mobile/tablet)
+- [✅] **6.3** Performance optimization (glass effects)
+- [✅] **6.4** Live demo running
 
-### Task 1: Root package.json
-- [x] Created root package.json with scripts (install-all, build, start)
-- [x] Added Node 18.x engine specification
+**Current Phase: Phase 1**  
+**Completed: 0/27 steps**
 
-### Task 2: Backend Update
-- [x] Added static file serve for frontend/dist
-- [x] Added SPA fallback route for refresh support
-
-### Task 3: Axios Config Fix
-- [x] Changed baseURL from localhost:5000 to /api
-
-### Task 4: Frontend Build
-- [x] Successfully built frontend (dist folder created)
-
-### Task 5: Render Settings
-- [ ] Configure Render with build and start commands

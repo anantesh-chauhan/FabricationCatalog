@@ -97,9 +97,18 @@ function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <div className="map-placeholder">
-            <span>Map Placeholder</span>
-          </div>
+          <div className="map-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1793.4462168929613!2d83.87945413874822!3d25.971567905643685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39923f0b2a4cc5ad%3A0xb339714232301d63!2sChhath%20Ghat!5e0!3m2!1sen!2sin!4v1777870309040!5m2!1sen!2sin"
+    width="100%"
+    height="400"
+    style={{ border: 0 }}
+    allowFullScreen=""
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    title="Location Map"
+  ></iframe>
+</div>
         </motion.div>
       </div>
     </div>

@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import { AuthProvider } from './context/AuthContext';
 import { ProductProvider } from './context/ProductContext';
 import Navbar from './components/Navbar';
@@ -13,6 +14,12 @@ import Contact from './pages/Contact';
 import './index.css';
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, [location.pathname]);
+
   return (
     <div className="app">
       {/* Wrap with AuthProvider for authentication state */}
@@ -23,7 +30,7 @@ function App() {
           <main className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
-<Route path="/designs" element={<Designs />} />
+              <Route path="/designs" element={<Designs />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/about" element={<About />} />
               <Route path="/team" element={<Team />} />

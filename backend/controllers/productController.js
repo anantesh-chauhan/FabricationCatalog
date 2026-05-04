@@ -83,10 +83,26 @@ if (!category || category.trim() === '') {
   return res.status(400).json({ message: 'Category is required' });
 }
 
-// Get the image URL from Cloudinary response
-// multer-storage-cloudinary automatically uploads to Cloudinary
+// ============================================
+// VALIDATE CLOUDINARY URL (PRODUCTION FIX)
+// ============================================
 const imageUrl = req.file.path;
-console.log('🖼️ Cloudinary image URL:', imageUrl);
+
+// Validate Cloudinary URL format
+const isValidCloudinaryUrl = imageUrl && imageUrl.includes('res.cloudinary.com') && imageUrl.startsWith('https://');
+if (!isValidCloudinaryUrl) {
+  console.error('🚨 INVALID CLOUDINARY URL:', imageUrl);
+  console.error('💡 Check CLOUDINARY_* environment variables');
+  return res.status(500).json({ 
+    message: 'Image upload failed. Invalid Cloudinary configuration. Check server logs.' 
+  });
+}
+
+console.log('🖼️ Valid Cloudinary URL:', imageUrl.substring(0, 60) + '...');
+
+if (process.env.NODE_ENV === 'production') {
+  console.log('🔍 PRODUCTION: Image ready at', imageUrl);
+}
 
 // Create product in MongoDB
 const product = await Product.create({
@@ -95,7 +111,7 @@ const product = await Product.create({
   category: category.toLowerCase().trim()
 });
 
-console.log('✅ Product saved:', product._id);
+console.log('✅ Product saved:', product._id, 'Image:', imageUrl.substring(0, 50) + '...');
 res.status(201).json(product);
   } catch (error) {
     console.error('❌ Error creating product:', error.message);

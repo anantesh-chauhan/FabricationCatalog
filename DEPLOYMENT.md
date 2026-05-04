@@ -44,18 +44,36 @@ Frontend runs on http://localhost:5173
 
 ## Production Deployment
 
-### Backend - Render.com
-1. Create account on render.com
-2. Create new Web Service
-3. Connect GitHub repository
-4. Set environment variables:
-   - MONGODB_URI (from MongoDB Atlas)
-   - JWT_SECRET
-   - CLOUDINARY_CLOUD_NAME
-   - CLOUDINARY_API_KEY
-   - CLOUDINARY_API_SECRET
-5. Build command: `npm run start`
-6. Start command: `node server.js`
+### Backend - Render.com (SINGLE SERVICE ✅)
+**IMPORTANT: Backend serves frontend in production - NO separate frontend deploy needed!**
+
+1. Fork/Connect GitHub repo to Render.com
+2. Create **Web Service** (not Static Site)
+3. **Build Command:** `npm install && cd backend && npm install && cd ../frontend && npm install && npm run build`
+4. **Start Command:** `cd backend && npm start`
+5. **Root Directory:** `/` (repo root)
+
+**🚨 CRITICAL Environment Variables (Images will FAIL without these):**
+```
+NODE_ENV=production
+MONGODB_URI=your_atlas_connection_string
+JWT_SECRET=your_jwt_secret_32_chars_min
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key  
+CLOUDINARY_API_SECRET=your_api_secret
+```
+
+**6. Deploy → https://yourapp.onrender.com will serve full app!**
+
+### Render.com Image Upload Checklist
+```
+✅ 1. CLOUDINARY_* vars set (check server logs)
+✅ 2. Backend serves frontend/dist ✅  
+✅ 3. /api/health returns OK
+✅ 4. Upload image → check console for "Valid Cloudinary URL"
+✅ 5. Images load from res.cloudinary.com ✅
+```
+
 
 ### Frontend - Vercel
 1. Create account on vercel.com
