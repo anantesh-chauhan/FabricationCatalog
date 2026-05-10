@@ -1,15 +1,13 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useProducts } from '../context/ProductContext';
-
-// New components
 import HeroSlider from '../components/HeroSlider';
 import ServicesSection from '../components/ServicesSection';
 import CategoryPreview from '../components/CategoryPreview';
 import FeaturedDesigns from '../components/FeaturedDesigns';
 import CTASection from '../components/CTASection';
-
-// Styles
+import FloatingContact from '../components/FloatingContact';
+import WhyChooseUs from '../components/WhyChooseUs';
 import './Home.css';
 
 // Animation variants for sections
@@ -36,6 +34,10 @@ function Home() {
       {/* Hero Slider Section */}
       <HeroSlider />
 
+      {/* Floating / Sticky contact actions (Phase 1) */}
+      <FloatingContact />
+
+
       {/* Services Section */}
       <motion.div
         variants={sectionVariants}
@@ -44,6 +46,16 @@ function Home() {
         viewport={{ once: true, margin: '-100px' }}
       >
         <ServicesSection />
+      </motion.div>
+
+      {/* Why Choose Us */}
+      <motion.div
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-100px' }}
+      >
+        <WhyChooseUs />
       </motion.div>
 
       {/* Category Preview */}
@@ -55,6 +67,7 @@ function Home() {
       >
         <CategoryPreview />
       </motion.div>
+
 
       {/* Featured Designs */}
       <motion.div

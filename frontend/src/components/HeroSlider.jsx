@@ -167,22 +167,33 @@ function HeroSlider() {
               animate="visible"
               exit="exit"
             >
-              <h1 className="hero-title">{currentSlideData.title}</h1>
-              <p className="hero-subtitle">{currentSlideData.subtitle}</p>
-              
+              <h1 className="hero-title">Premium Gate &amp; Fabrication Solutions</h1>
+              <p className="hero-subtitle">
+                Trusted welding, modern designs, and durable fabrication for gates, railings, doors, and more—built for a lifetime.
+              </p>
+
               <div className="hero-cta">
-                <Link to="/designs" className="btn btn-primary">
-                  View Designs
-                </Link>
-                <a 
-                  href="https://wa.me/917317289139" 
+                <a
+                  href="https://wa.me/917317289139"
                   className="btn btn-whatsapp"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Contact on WhatsApp
+                  WhatsApp
                 </a>
+
+                <a
+                  href="tel:+917317289139"
+                  className="btn btn-secondary btn-call"
+                >
+                  Call Now
+                </a>
+
+                <Link to="/designs" className="btn btn-primary">
+                  View Designs
+                </Link>
               </div>
+
             </motion.div>
           </AnimatePresence>
         </div>
